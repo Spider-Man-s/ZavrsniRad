@@ -185,7 +185,7 @@ public class RecordingManager : MonoBehaviour
     private void OnValidate()
     {
 #if UNITY_EDITOR
-        if (UnityEditor.Experimental.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() != null) 
+        if (UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() != null) 
             return;
 
         foreach (TrackedObject to in trackedObjects)
