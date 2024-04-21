@@ -1,0 +1,4 @@
+type,trackedData,position,rotation,camera,trackingRate,replayGameObject,replayScripts
+object,/Scene/Plane,True,True,False,100,,
+object,/XR Rig Advanced/PlayerController/CameraRig/TrackingSpace/CenterEyeAnchor,True,True,True,100,,
+object,/world/XR Rig Advanced/PlayerController/CameraRig/TrackingSpace/CenterEyeAnchor,True,True,True,100,,
