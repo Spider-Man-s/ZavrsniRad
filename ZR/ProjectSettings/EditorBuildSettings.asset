@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Zavrsni rad/Demo.unity
     guid: a18662da40996ea45bd7eaa657fdd6ac
+  - enabled: 1
+    path: Assets/Zavrsni rad/intro.unity
+    guid: 7cff52a95f0e63f4a8f1aae76a047396
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: a437405642696d746a49df319521c903,
       type: 2}
