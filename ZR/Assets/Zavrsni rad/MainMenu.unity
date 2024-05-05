@@ -970,6 +970,7 @@ GameObject:
   - component: {fileID: 687715721}
   - component: {fileID: 687715723}
   - component: {fileID: 687715724}
+  - component: {fileID: 687715725}
   m_Layer: 0
   m_Name: function
   m_TagString: Untagged
@@ -1034,6 +1035,19 @@ MonoBehaviour:
   objectsToShow:
   - {fileID: 1799712614}
   - {fileID: 771788971}
+--- !u!114 &687715725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687715720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e1c1e9200586244894c8eb2eba8da1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenarioOption: 0
 --- !u!1 &771788971
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,6 +1111,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 687715725}
+        m_TargetAssemblyTypeName: scenario, Assembly-CSharp
+        m_MethodName: scene2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 687715721}
         m_TargetAssemblyTypeName: BNG.SceneLoader, Assembly-CSharp
         m_MethodName: LoadScene
@@ -1949,6 +1975,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 687715725}
+        m_TargetAssemblyTypeName: scenario, Assembly-CSharp
+        m_MethodName: scene1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 687715721}
         m_TargetAssemblyTypeName: BNG.SceneLoader, Assembly-CSharp
         m_MethodName: LoadScene
