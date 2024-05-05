@@ -5,6 +5,16 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ch42_Body
+    second: {fileID: 2100000, guid: fc0cf7d590ace194b975b0064eaf9efc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ch42_Hair
+    second: {fileID: 2100000, guid: 278e739dc81397f46b3a76b1f1a6cb28, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Ch42_1001_Diffuse
@@ -102,9 +112,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - a9d08f94e627ddd44aaaf10708bf3fc1
-  - ee16d824bad18014b8039fa89d6d5de9
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
