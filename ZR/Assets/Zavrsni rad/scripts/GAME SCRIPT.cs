@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Dreamteck.Splines;
 
 public class GAMESCRIPT : MonoBehaviour
 {
@@ -14,6 +15,22 @@ public class GAMESCRIPT : MonoBehaviour
     public TextMeshProUGUI CharlieText;
     public GameObject ElsaCloud;
     public TextMeshProUGUI ElsaText;
+
+    public GameObject PlayerObjective;
+    public TextMeshProUGUI PlayerObjectiveText;
+
+    public GameObject Remy;
+    public GameObject Elsa;
+    public GameObject Charlie;
+
+    private Animator RemyAnim;
+    private Animator CharlieAnim;
+    private Animator ElsaAnim;
+
+    private SplineFollower CharlieSpline;
+    private SplineFollower ElsaSpline;
+    private SplineFollower RemySpline;
+
     public void Begin()
 
     {
@@ -29,11 +46,21 @@ public class GAMESCRIPT : MonoBehaviour
     IEnumerator Checkpoint1()
     {
 
+        RemyAnim = Remy.GetComponent<Animator>();
+        CharlieAnim = Charlie.GetComponent<Animator>();
+        ElsaAnim = Elsa.GetComponent<Animator>();
+
+        CharlieSpline = Charlie.GetComponent<SplineFollower>();
+        //  ElsaSpline = Elsa.GetComponent<SplineFollower>();
+        //RemySpline = Remy.GetComponent<SplineFollower>();
+
+
         yield return new WaitForSeconds(2f);
         RemyCloud.SetActive(true);
         //Good morning Alex. Did you manage to get some sleep?
         yield return new WaitForSeconds(4f);
         RemyCloud.SetActive(false);
+        /*
         ElsaCloud.SetActive(true);
         ElsaText.text = "I don't know how anyone could sleep tonight.";
         yield return new WaitForSeconds(4f);
@@ -123,6 +150,10 @@ public class GAMESCRIPT : MonoBehaviour
         yield return new WaitForSeconds(4f);
         ElsaCloud.SetActive(false);
         CharlieCloud.SetActive(false);
+*/
+
+        CharlieAnim.SetTrigger("start walking");
+        CharlieSpline.follow = true;
     }
 
 
