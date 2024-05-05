@@ -24,15 +24,21 @@ public class GAMESCRIPT : MonoBehaviour
     IEnumerator Checkpoint1()
     {
 
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(1.5f);
         RemyCloud.SetActive(true);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         RemyCloud.SetActive(false);
         ElsaCloud.SetActive(true);
         ElsaText.text = "I don't know how anyone could sleep.";
-
-
+        yield return new WaitForSeconds(3.5f);
+        ElsaText.text = "The whole plane crashed down.";
+        yield return new WaitForSeconds(3.5f);
+        ElsaCloud.SetActive(false);
+        CharlieCloud.SetActive(true);
+        CharlieText.text = "I agree with Elsa, it was horrible.";
+        yield return new WaitForSeconds(3.5f);
+        CharlieCloud.SetActive(false);
     }
 
 
