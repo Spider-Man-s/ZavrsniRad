@@ -9,6 +9,8 @@ public class GAMESCRIPT : MonoBehaviour
 {
     int scene = GlobalMemory.scenario;
 
+    int FriendsHelped = 0;
+
     public GameObject RemyCloud;
     public TextMeshProUGUI RemyText;
     public GameObject CharlieCloud;
@@ -31,17 +33,13 @@ public class GAMESCRIPT : MonoBehaviour
     private SplineFollower ElsaSpline;
     private SplineFollower RemySpline;
 
-    public void Begin()
+    public GameObject part2;
 
+    public void Begin()
     {
         StartCoroutine(Checkpoint1());
     }
 
-    /* 
-    
-    yield return new WaitForSeconds(3.5f);
-    
-    */
 
     IEnumerator Checkpoint1()
     {
@@ -51,16 +49,16 @@ public class GAMESCRIPT : MonoBehaviour
         ElsaAnim = Elsa.GetComponent<Animator>();
 
         CharlieSpline = Charlie.GetComponent<SplineFollower>();
-        //  ElsaSpline = Elsa.GetComponent<SplineFollower>();
-        //RemySpline = Remy.GetComponent<SplineFollower>();
+        ElsaSpline = Elsa.GetComponent<SplineFollower>();
+        RemySpline = Remy.GetComponent<SplineFollower>();
 
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+        /*
         RemyCloud.SetActive(true);
-        //Good morning Alex. Did you manage to get some sleep?
+        Good morning Alex. Did you manage to get some sleep?
         yield return new WaitForSeconds(4f);
         RemyCloud.SetActive(false);
-        /*
         ElsaCloud.SetActive(true);
         ElsaText.text = "I don't know how anyone could sleep tonight.";
         yield return new WaitForSeconds(4f);
@@ -152,10 +150,54 @@ public class GAMESCRIPT : MonoBehaviour
         CharlieCloud.SetActive(false);
 */
 
+        PlayerObjective.SetActive(true);
+        PlayerObjectiveText.text = "Help friends: " + FriendsHelped + "/3";
+
         CharlieAnim.SetTrigger("start walking");
         CharlieSpline.follow = true;
+        yield return new WaitForSeconds(3f);
+        RemyAnim.SetTrigger("start walking");
+        RemySpline.follow = true;
+        yield return new WaitForSeconds(2f);
+        ElsaAnim.SetTrigger("start walking");
+        ElsaSpline.follow = true;
+
+        part2.SetActive(true);
+
     }
 
+    public void Mission1()
+    {
+        StartCoroutine(Task1());
+
+    }
+
+    IEnumerator Task1()
+    {
+        yield return new WaitForSeconds(3f);
+    }
+
+    public void Mission2()
+    {
+        StartCoroutine(Taks2());
+
+    }
+
+    IEnumerator Taks2()
+    {
+        yield return new WaitForSeconds(3f);
+    }
+
+    public void Mission3()
+    {
+        StartCoroutine(Task3());
+
+    }
+
+    IEnumerator Task3()
+    {
+        yield return new WaitForSeconds(3f);
+    }
 
 
 }
