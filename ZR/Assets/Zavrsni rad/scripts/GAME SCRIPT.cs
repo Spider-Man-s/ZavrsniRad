@@ -33,7 +33,40 @@ public class GAMESCRIPT : MonoBehaviour
     private SplineFollower ElsaSpline;
     private SplineFollower RemySpline;
 
+    public GameObject CharlieMission;
+    public GameObject RemyMission;
+    public GameObject ElsaMission;
+    public TextMeshProUGUI CharlieMissionText;
+    public TextMeshProUGUI RemyMissionText;
+    public TextMeshProUGUI ElsaMissionText;
+
+    private bool inMission = false;
+
+    private int booksFound = 0;
+    private int coconutsFound = 0;
+    private int woodFound = 0;
     public GameObject part2;
+
+
+    public void book()
+    {
+        booksFound++;
+        PlayerObjectiveText.text = "Find books: " + booksFound + "/3";
+        if (booksFound == 3)
+        {
+            PlayerObjectiveText.text = "Talk to Charlie";
+        }
+
+    }
+    public void coconut()
+    {
+        coconutsFound++;
+    }
+    public void wood()
+    {
+        woodFound++;
+    }
+
 
     public void Begin()
     {
@@ -155,31 +188,111 @@ public class GAMESCRIPT : MonoBehaviour
 
         CharlieAnim.SetTrigger("start walking");
         CharlieSpline.follow = true;
-        yield return new WaitForSeconds(3f);
-        RemyAnim.SetTrigger("start walking");
-        RemySpline.follow = true;
-        yield return new WaitForSeconds(2f);
-        ElsaAnim.SetTrigger("start walking");
-        ElsaSpline.follow = true;
-
+        /*
+         yield return new WaitForSeconds(3f);
+         RemyAnim.SetTrigger("start walking");
+         RemySpline.follow = true;
+         yield return new WaitForSeconds(2f);
+         ElsaAnim.SetTrigger("start walking");
+         ElsaSpline.follow = true;
+ */
         part2.SetActive(true);
 
     }
 
     public void Mission1()
     {
-        StartCoroutine(Task1());
+        if (!inMission)
+        {
+            StartCoroutine(Task1());
+        }
+        if (booksFound == 3)
+        {
+            StartCoroutine(Task12());
+        }
 
     }
 
     IEnumerator Task1()
     {
+        inMission = true;
+        CharlieMission.SetActive(false);
+        ElsaMissionText.text = "Help Charlie first.";
+        RemyMissionText.text = "Help Charlie first.";
+        PlayerObjectiveText.text = "Find books: " + booksFound + "/3";
+
+        CharlieCloud.SetActive(true);
+        CharlieText.text = "Hi Alex, I'm glad you're here.";
+        yield return new WaitForSeconds(1f);
+        CharlieAnim.SetTrigger("thank");
         yield return new WaitForSeconds(3f);
+        CharlieText.text = "Look what I found. See this book over there?";
+        yield return new WaitForSeconds(1f);
+        CharlieAnim.SetTrigger("point");
+        yield return new WaitForSeconds(3f);
+        CharlieText.text = "I think we can learn something useful from it.";
+        yield return new WaitForSeconds(4f);
+        CharlieText.text = "However, it's incomplete. It seems there should be";
+        yield return new WaitForSeconds(4f);
+        CharlieText.text = "at least 3 more books here somewhere.";
+        yield return new WaitForSeconds(4f);
+        CharlieText.text = "Would you please search for them?";
+        CharlieAnim.SetTrigger("please");
+        yield return new WaitForSeconds(4f);
+        CharlieText.text = "They should be located in the other houses.";
+        yield return new WaitForSeconds(4f);
+        CharlieText.text = "When you find them, please bring them inside here.";
+        yield return new WaitForSeconds(4f);
+        CharlieText.text = "I will stay and examine them.";
+        yield return new WaitForSeconds(4f);
+        CharlieText.text = "Good luck Alex.";
+        yield return new WaitForSeconds(4f);
+        CharlieCloud.SetActive(false);
+        PlayerObjective.SetActive(true);
+        CharlieMission.SetActive(false);
+
+        while (booksFound != 3)
+        {
+            yield return new WaitForSeconds(1);
+        }
+
+        CharlieMission.SetActive(true);
+
     }
+
+    IEnumerator Task12()
+    {
+        FriendsHelped++;
+        CharlieMission.SetActive(false);
+        CharlieCloud.SetActive(true);
+        CharlieText.text = "Whoa. You found them all!";
+        yield return new WaitForSeconds(3f);
+        CharlieText.text = "Thank you so much Alex";
+        yield return new WaitForSeconds(1f);
+        CharlieAnim.SetTrigger("thank");
+        yield return new WaitForSeconds(3f);
+        CharlieText.text = "Let's hope I can dig some info out";
+        yield return new WaitForSeconds(3f);
+        CharlieText.text = "Thanks again, see you later";
+        yield return new WaitForSeconds(1f);
+        CharlieAnim.SetTrigger("wawe");
+        yield return new WaitForSeconds(3f);
+        CharlieCloud.SetActive(false);
+        PlayerObjective.SetActive(true);
+        PlayerObjectiveText.text = "Help friends: " + FriendsHelped + "/3";
+
+        inMission = false;
+    }
+
+
 
     public void Mission2()
     {
-        StartCoroutine(Taks2());
+        if (!inMission)
+        {
+            StartCoroutine(Taks2());
+        }
+
 
     }
 
@@ -190,8 +303,10 @@ public class GAMESCRIPT : MonoBehaviour
 
     public void Mission3()
     {
-        StartCoroutine(Task3());
-
+        if (!inMission)
+        {
+            StartCoroutine(Task3());
+        }
     }
 
     IEnumerator Task3()
