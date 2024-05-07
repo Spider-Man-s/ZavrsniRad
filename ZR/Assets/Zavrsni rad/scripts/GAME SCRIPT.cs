@@ -116,9 +116,9 @@ public class GAMESCRIPT : MonoBehaviour
 
 
         yield return new WaitForSeconds(1f);
-        /*
+
         RemyCloud.SetActive(true);
-        Good morning Alex. Did you manage to get some sleep?
+        //Good morning Alex.Did you manage to get some sleep?
         yield return new WaitForSeconds(4f);
         RemyCloud.SetActive(false);
         ElsaCloud.SetActive(true);
@@ -210,7 +210,7 @@ public class GAMESCRIPT : MonoBehaviour
         yield return new WaitForSeconds(4f);
         ElsaCloud.SetActive(false);
         CharlieCloud.SetActive(false);
-*/
+
 
         PlayerObjective.SetActive(true);
         PlayerObjectiveText.text = "Help friends: " + FriendsHelped + "/3";
@@ -253,7 +253,7 @@ public class GAMESCRIPT : MonoBehaviour
 
         CharlieCloud.SetActive(true);
         CharlieText.text = "Hi Alex, I'm glad you're here.";
-        /*
+
         yield return new WaitForSeconds(1f);
         CharlieAnim.SetTrigger("thank");
         yield return new WaitForSeconds(3f);
@@ -278,7 +278,7 @@ public class GAMESCRIPT : MonoBehaviour
         yield return new WaitForSeconds(4f);
         CharlieText.text = "Good luck Alex.";
         yield return new WaitForSeconds(4f);
-        */
+
         CharlieCloud.SetActive(false);
         PlayerObjective.SetActive(true);
         CharlieMission.SetActive(false);
@@ -347,7 +347,7 @@ public class GAMESCRIPT : MonoBehaviour
         RemyCloud.SetActive(true);
         RemyText.text = "Hey there, you feeling any better?";
         yield return new WaitForSeconds(4f);
-        /*
+
         RemyText.text = "I hope you do. Anyways, I looked around the village.";
         yield return new WaitForSeconds(4f);
         RemyText.text = "All the houses are in pretty good condition";
@@ -380,7 +380,7 @@ public class GAMESCRIPT : MonoBehaviour
         yield return new WaitForSeconds(4f);
         RemyText.text = "See you later and good luck.";
         yield return new WaitForSeconds(4f);
-        */
+
 
         RemyCloud.SetActive(false);
         PlayerObjective.SetActive(true);
@@ -449,7 +449,7 @@ public class GAMESCRIPT : MonoBehaviour
         ElsaCloud.SetActive(true);
         ElsaText.text = "Hi Alex, mind giving me a hand?";
         yield return new WaitForSeconds(4f);
-        /*
+
         ElsaText.text = "You see, I found this house that looks like a kitchen.";
         yield return new WaitForSeconds(1f);
         ElsaAnim.SetTrigger("point");
@@ -488,7 +488,7 @@ public class GAMESCRIPT : MonoBehaviour
         yield return new WaitForSeconds(4f);
         ElsaText.text = "I'm going to try to make us some lunch in the meantime.";
         yield return new WaitForSeconds(4f);
-        */
+
         ElsaText.text = "Good luck.";
         ElsaAnim.SetTrigger("salute");
         yield return new WaitForSeconds(4f);
@@ -514,7 +514,7 @@ public class GAMESCRIPT : MonoBehaviour
         ElsaCloud.SetActive(true);
         ElsaText.text = "Good job!";
         yield return new WaitForSeconds(3f);
-        /*
+
         ElsaText.text = "I knew you could do it.";
         yield return new WaitForSeconds(1f);
         ElsaAnim.SetTrigger("clap");
@@ -529,7 +529,7 @@ public class GAMESCRIPT : MonoBehaviour
         yield return new WaitForSeconds(1f);
         ElsaAnim.SetTrigger("wawe");
         yield return new WaitForSeconds(3f);
-        */
+
         ElsaCloud.SetActive(false);
         PlayerObjective.SetActive(true);
         PlayerObjectiveText.text = "Help friends: " + FriendsHelped + "/3";
