@@ -219,12 +219,10 @@ public class GAMESCRIPT : MonoBehaviour
         yield return new WaitForSeconds(3f);
         RemyAnim.SetTrigger("start walking");
         RemySpline.follow = true;
-        /*
-         
-         yield return new WaitForSeconds(2f);
-         ElsaAnim.SetTrigger("start walking");
-         ElsaSpline.follow = true;
- */
+        yield return new WaitForSeconds(2f);
+        ElsaAnim.SetTrigger("start walking");
+        ElsaSpline.follow = true;
+
         part2.SetActive(true);
 
     }
@@ -427,11 +425,105 @@ public class GAMESCRIPT : MonoBehaviour
         {
             StartCoroutine(Task3());
         }
+        if (coconutsFound == 4)
+        {
+            StartCoroutine(Task32());
+        }
     }
 
     IEnumerator Task3()
     {
+        inMission = true;
+        PlayerObjective.SetActive(false);
+        missionItems3.SetActive(true);
+        ElsaMission.SetActive(false);
+        CharlieMissionText.text = "Help Elsa first.";
+        RemyMissionText.text = "Help Elsa first.";
+        PlayerObjectiveText.text = "Find coconuts: " + coconutsFound + "/4";
+
+        ElsaCloud.SetActive(true);
+        ElsaText.text = "Hi Alex, mind giving me a hand?";
+        yield return new WaitForSeconds(4f);
+        ElsaText.text = "You see, I found this house that looks like a kitchen.";
+        yield return new WaitForSeconds(1f);
+        ElsaAnim.SetTrigger("point");
         yield return new WaitForSeconds(3f);
+        ElsaText.text = "I found some food, but there isn't any water or drinks.";
+        yield return new WaitForSeconds(4f);
+        ElsaText.text = "I don't know how the people before us lived here,";
+        yield return new WaitForSeconds(4f);
+        ElsaText.text = "maybe they took water from ocean and proccesed it.";
+        yield return new WaitForSeconds(4f);
+        ElsaText.text = "Since we're new here, we need to find some alternative,";
+        yield return new WaitForSeconds(4f);
+        ElsaText.text = "until we find a way to extract drinkable water.";
+        yield return new WaitForSeconds(4f);
+        ElsaText.text = "I see some palms around, so maybe we can find some coconuts.";
+        yield return new WaitForSeconds(4f);
+        ElsaText.text = "We can then extract coconut water from them.";
+        yield return new WaitForSeconds(4f);
+        ElsaText.text = "It should cover our needs for a while.";
+        yield return new WaitForSeconds(4f);
+        ElsaText.text = "The only problem is getting them down from palms.";
+        yield return new WaitForSeconds(4f);
+        ElsaText.text = "But don't worry. I think I found a way to do it.";
+        yield return new WaitForSeconds(4f);
+        ElsaText.text = "While I was searching through this kitchen, I found this bow.";
+        yield return new WaitForSeconds(1f);
+        ElsaAnim.SetTrigger("pointLeft");
+        yield return new WaitForSeconds(3f);
+        ElsaText.text = "I think they used it for hunting or something.";
+        yield return new WaitForSeconds(4f);
+        ElsaText.text = "However, we can use it to shoot down the coconuts from palms.";
+        yield return new WaitForSeconds(4f);
+        ElsaText.text = "By \"we\" I mean you Alex. I know you can do it.";
+        yield return new WaitForSeconds(4f);
+        ElsaText.text = "Try to get down a few and bring them inside on the shelf.";
+        yield return new WaitForSeconds(4f);
+        ElsaText.text = "I'm going to try to make us some lunch in the meantime.";
+        yield return new WaitForSeconds(4f);
+        ElsaText.text = "Good luck.";
+        ElsaAnim.SetTrigger("salute");
+        yield return new WaitForSeconds(4f);
+
+        ElsaCloud.SetActive(false);
+        PlayerObjective.SetActive(true);
+        ElsaMission.SetActive(false);
+
+        while (coconutsFound != 4)
+        {
+            yield return new WaitForSeconds(1);
+        }
+
+        ElsaMission.SetActive(true);
+        ElsaMissionBTN.SetActive(false);
+    }
+
+    IEnumerator Task32()
+    {
+        FriendsHelped++;
+        PlayerObjective.SetActive(false);
+        ElsaMission.SetActive(false);
+        ElsaCloud.SetActive(true);
+        ElsaText.text = "Nice work there!";
+        yield return new WaitForSeconds(3f);
+        ElsaText.text = "Thank you Alex.";
+        yield return new WaitForSeconds(1f);
+        //ElsaText.SetTrigger("thank");
+        yield return new WaitForSeconds(3f);
+        ElsaText.text = "Thanks to you we aren't going to freeze tonight.";
+        yield return new WaitForSeconds(3f);
+        ElsaText.text = "Anyways, I'm going to get to work now, see you!";
+        yield return new WaitForSeconds(1f);
+        // ElsaAnim.SetTrigger("wawe");
+        yield return new WaitForSeconds(3f);
+        ElsaCloud.SetActive(false);
+        PlayerObjective.SetActive(true);
+        PlayerObjectiveText.text = "Help friends: " + FriendsHelped + "/3";
+        CharlieMissionText.text = "Talk to Charlie";
+        RemyMissionText.text = "Talk to Remy";
+        inMission = false;
+        check();
     }
 
 
