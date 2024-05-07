@@ -542,6 +542,7 @@ public class GAMESCRIPT : MonoBehaviour
     ScreenFader sf;
     IEnumerator MissionsComplete()
     {
+        PlayerObjectiveText.text = "Congratulations!";
         yield return new WaitForSeconds(3f);
         if (sf == null)
         {

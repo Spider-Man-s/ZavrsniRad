@@ -727,9 +727,24 @@ PrefabInstance:
       propertyPath: TeleportDestination
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5959677274440945754, guid: 4ac7df741a9c0a2418ec19477729ee3d,
+        type: 3}
+      propertyPath: DefaultHandsModel
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6065732222583390601, guid: 4ac7df741a9c0a2418ec19477729ee3d,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7360604237943805473, guid: 4ac7df741a9c0a2418ec19477729ee3d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416186859196766714, guid: 4ac7df741a9c0a2418ec19477729ee3d,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1047,7 +1062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64e1c1e9200586244894c8eb2eba8da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenarioOption: 0
 --- !u!1 &771788971
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,8 +1889,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706554167}
   m_LocalRotation: {x: -0, y: -0, z: 0.99999565, w: 0.0029755135}
-  m_LocalPosition: {x: 0, y: 0, z: 856.48}
-  m_LocalScale: {x: -0.020510066, y: -0.04557691, z: -0.04557691}
+  m_LocalPosition: {x: 0, y: 0, z: 856.49}
+  m_LocalScale: {x: -0.011264949, y: -0.025032662, z: -0.025032662}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 585399109}
