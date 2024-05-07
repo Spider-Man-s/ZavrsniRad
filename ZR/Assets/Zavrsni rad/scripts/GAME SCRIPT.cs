@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Dreamteck.Splines;
-
+using UnityEngine.SceneManagement;
+using BNG;
 public class GAMESCRIPT : MonoBehaviour
 {
     int scene = GlobalMemory.scenario;
@@ -252,6 +253,7 @@ public class GAMESCRIPT : MonoBehaviour
 
         CharlieCloud.SetActive(true);
         CharlieText.text = "Hi Alex, I'm glad you're here.";
+        /*
         yield return new WaitForSeconds(1f);
         CharlieAnim.SetTrigger("thank");
         yield return new WaitForSeconds(3f);
@@ -276,6 +278,7 @@ public class GAMESCRIPT : MonoBehaviour
         yield return new WaitForSeconds(4f);
         CharlieText.text = "Good luck Alex.";
         yield return new WaitForSeconds(4f);
+        */
         CharlieCloud.SetActive(false);
         PlayerObjective.SetActive(true);
         CharlieMission.SetActive(false);
@@ -344,6 +347,7 @@ public class GAMESCRIPT : MonoBehaviour
         RemyCloud.SetActive(true);
         RemyText.text = "Hey there, you feeling any better?";
         yield return new WaitForSeconds(4f);
+        /*
         RemyText.text = "I hope you do. Anyways, I looked around the village.";
         yield return new WaitForSeconds(4f);
         RemyText.text = "All the houses are in pretty good condition";
@@ -376,6 +380,7 @@ public class GAMESCRIPT : MonoBehaviour
         yield return new WaitForSeconds(4f);
         RemyText.text = "See you later and good luck.";
         yield return new WaitForSeconds(4f);
+        */
 
         RemyCloud.SetActive(false);
         PlayerObjective.SetActive(true);
@@ -444,6 +449,7 @@ public class GAMESCRIPT : MonoBehaviour
         ElsaCloud.SetActive(true);
         ElsaText.text = "Hi Alex, mind giving me a hand?";
         yield return new WaitForSeconds(4f);
+        /*
         ElsaText.text = "You see, I found this house that looks like a kitchen.";
         yield return new WaitForSeconds(1f);
         ElsaAnim.SetTrigger("point");
@@ -482,6 +488,7 @@ public class GAMESCRIPT : MonoBehaviour
         yield return new WaitForSeconds(4f);
         ElsaText.text = "I'm going to try to make us some lunch in the meantime.";
         yield return new WaitForSeconds(4f);
+        */
         ElsaText.text = "Good luck.";
         ElsaAnim.SetTrigger("salute");
         yield return new WaitForSeconds(4f);
@@ -505,18 +512,24 @@ public class GAMESCRIPT : MonoBehaviour
         PlayerObjective.SetActive(false);
         ElsaMission.SetActive(false);
         ElsaCloud.SetActive(true);
-        ElsaText.text = "Nice work there!";
+        ElsaText.text = "Good job!";
         yield return new WaitForSeconds(3f);
-        ElsaText.text = "Thank you Alex.";
+        /*
+        ElsaText.text = "I knew you could do it.";
         yield return new WaitForSeconds(1f);
-        //ElsaText.SetTrigger("thank");
+        ElsaAnim.SetTrigger("clap");
         yield return new WaitForSeconds(3f);
-        ElsaText.text = "Thanks to you we aren't going to freeze tonight.";
+        ElsaText.text = "Now we don't have to worry about food and water for a while.";
         yield return new WaitForSeconds(3f);
-        ElsaText.text = "Anyways, I'm going to get to work now, see you!";
+        ElsaText.text = "And the other good news, lunch is almost ready!";
+        yield return new WaitForSeconds(4f);
+        ElsaText.text = "Hope you're hungry! But first let me finish it.";
+        yield return new WaitForSeconds(4f);
+        ElsaText.text = "I'm gonna call you when it's ready. See you later.";
         yield return new WaitForSeconds(1f);
-        // ElsaAnim.SetTrigger("wawe");
+        ElsaAnim.SetTrigger("wawe");
         yield return new WaitForSeconds(3f);
+        */
         ElsaCloud.SetActive(false);
         PlayerObjective.SetActive(true);
         PlayerObjectiveText.text = "Help friends: " + FriendsHelped + "/3";
@@ -526,10 +539,20 @@ public class GAMESCRIPT : MonoBehaviour
         check();
     }
 
-
+    ScreenFader sf;
     IEnumerator MissionsComplete()
     {
         yield return new WaitForSeconds(3f);
+        if (sf == null)
+        {
+            sf = FindObjectOfType<ScreenFader>();
+            if (sf != null)
+            {
+                sf.DoFadeIn();
+            }
+        }
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("MainMenu 1", LoadSceneMode.Single);
     }
 
 
