@@ -18,7 +18,7 @@ namespace BNG
         AudioSource impactSound;
 
         float flightTime = 0f;
-        float destroyTime = 10000f; // Time in seconds to destroy arrow
+        float destroyTime = 5f; // Time in seconds to destroy arrow
         Coroutine queueDestroy;
 
         public Projectile ProjectileObject;
