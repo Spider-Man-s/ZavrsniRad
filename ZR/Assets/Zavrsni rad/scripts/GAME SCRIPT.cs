@@ -36,9 +36,19 @@ public class GAMESCRIPT : MonoBehaviour
     public GameObject CharlieMission;
     public GameObject RemyMission;
     public GameObject ElsaMission;
+
+    public GameObject CharlieMissionBTN;
+    public GameObject RemyMissionBTN;
+    public GameObject ElsaMissionBTN;
     public TextMeshProUGUI CharlieMissionText;
     public TextMeshProUGUI RemyMissionText;
     public TextMeshProUGUI ElsaMissionText;
+
+
+
+    public GameObject missionItems1;
+    public GameObject missionItems2;
+    public GameObject missionItems3;
 
     private bool inMission = false;
 
@@ -61,10 +71,28 @@ public class GAMESCRIPT : MonoBehaviour
     public void coconut()
     {
         coconutsFound++;
+        PlayerObjectiveText.text = "Find coconuts: " + coconutsFound + "/4";
+        if (coconutsFound == 4)
+        {
+            PlayerObjectiveText.text = "Talk to Elsa";
+        }
     }
     public void wood()
     {
         woodFound++;
+        PlayerObjectiveText.text = "Find wood: " + woodFound + "/4";
+        if (woodFound == 4)
+        {
+            PlayerObjectiveText.text = "Talk to Remy";
+        }
+    }
+
+    public void check()
+    {
+        if (FriendsHelped == 3)
+        {
+            StartCoroutine(MissionsComplete());
+        }
     }
 
 
@@ -188,10 +216,11 @@ public class GAMESCRIPT : MonoBehaviour
 
         CharlieAnim.SetTrigger("start walking");
         CharlieSpline.follow = true;
+        yield return new WaitForSeconds(3f);
+        RemyAnim.SetTrigger("start walking");
+        RemySpline.follow = true;
         /*
-         yield return new WaitForSeconds(3f);
-         RemyAnim.SetTrigger("start walking");
-         RemySpline.follow = true;
+         
          yield return new WaitForSeconds(2f);
          ElsaAnim.SetTrigger("start walking");
          ElsaSpline.follow = true;
@@ -216,6 +245,8 @@ public class GAMESCRIPT : MonoBehaviour
     IEnumerator Task1()
     {
         inMission = true;
+        PlayerObjective.SetActive(false);
+        missionItems1.SetActive(true);
         CharlieMission.SetActive(false);
         ElsaMissionText.text = "Help Charlie first.";
         RemyMissionText.text = "Help Charlie first.";
@@ -257,12 +288,13 @@ public class GAMESCRIPT : MonoBehaviour
         }
 
         CharlieMission.SetActive(true);
-
+        CharlieMissionBTN.SetActive(false);
     }
 
     IEnumerator Task12()
     {
         FriendsHelped++;
+        PlayerObjective.SetActive(false);
         CharlieMission.SetActive(false);
         CharlieCloud.SetActive(true);
         CharlieText.text = "Whoa. You found them all!";
@@ -280,8 +312,10 @@ public class GAMESCRIPT : MonoBehaviour
         CharlieCloud.SetActive(false);
         PlayerObjective.SetActive(true);
         PlayerObjectiveText.text = "Help friends: " + FriendsHelped + "/3";
-
         inMission = false;
+        ElsaMissionText.text = "Talk to Elsa.";
+        RemyMissionText.text = "Talk to Remy.";
+        check();
     }
 
 
@@ -290,16 +324,102 @@ public class GAMESCRIPT : MonoBehaviour
     {
         if (!inMission)
         {
-            StartCoroutine(Taks2());
+            StartCoroutine(Task2());
+        }
+        if (woodFound == 4)
+        {
+            StartCoroutine(Task22());
         }
 
-
     }
 
-    IEnumerator Taks2()
+    IEnumerator Task2()
     {
+        inMission = true;
+        PlayerObjective.SetActive(false);
+        missionItems2.SetActive(true);
+        RemyMission.SetActive(false);
+        CharlieMissionText.text = "Help Remy first.";
+        ElsaMissionText.text = "Help Remy first.";
+        PlayerObjectiveText.text = "Find wood: " + woodFound + "/4";
+
+        RemyCloud.SetActive(true);
+        RemyText.text = "Hey there, you feeling any better?";
+        yield return new WaitForSeconds(4f);
+        RemyText.text = "I hope you do. Anyways, I looked around the village.";
+        yield return new WaitForSeconds(4f);
+        RemyText.text = "All the houses are in pretty good condition";
+        yield return new WaitForSeconds(4f);
+        RemyText.text = "so I think we're going to sleep under a roof tonight.";
+        yield return new WaitForSeconds(4f);
+        RemyText.text = "The only problem we have is the cold.";
+        yield return new WaitForSeconds(4f);
+        RemyText.text = "We are in the middle of the ocean,";
+        yield return new WaitForSeconds(4f);
+        RemyText.text = "so it's freezing at night.";
+        yield return new WaitForSeconds(4f);
+        RemyText.text = "Luckily, we have these furnaces over here.";
+        yield return new WaitForSeconds(1f);
+        RemyAnim.SetTrigger("point");
         yield return new WaitForSeconds(3f);
+        RemyText.text = "We only need some fuel, like wood.";
+        yield return new WaitForSeconds(4f);
+        RemyText.text = "Do you mind looking for some while I try";
+        yield return new WaitForSeconds(4f);
+        RemyText.text = "to figure out how these work?";
+        yield return new WaitForSeconds(4f);
+        RemyText.text = "If you find wood bring it in the hut over there.";
+        yield return new WaitForSeconds(1f);
+        RemyAnim.SetTrigger("pointLeft");
+        yield return new WaitForSeconds(3f);
+        RemyText.text = "We should keep it dry in case it rains.";
+        yield return new WaitForSeconds(4f);
+        RemyText.text = "You should find some wood laying around the houses.";
+        yield return new WaitForSeconds(4f);
+        RemyText.text = "See you later and good luck.";
+        yield return new WaitForSeconds(4f);
+
+        RemyCloud.SetActive(false);
+        PlayerObjective.SetActive(true);
+        RemyMission.SetActive(false);
+
+        while (woodFound != 4)
+        {
+            yield return new WaitForSeconds(1);
+        }
+
+        RemyMission.SetActive(true);
+        RemyMissionBTN.SetActive(false);
     }
+
+
+    IEnumerator Task22()
+    {
+        FriendsHelped++;
+        PlayerObjective.SetActive(false);
+        RemyMission.SetActive(false);
+        RemyCloud.SetActive(true);
+        RemyText.text = "Nice work there!";
+        yield return new WaitForSeconds(3f);
+        RemyText.text = "Thank you Alex.";
+        yield return new WaitForSeconds(1f);
+        RemyAnim.SetTrigger("thank");
+        yield return new WaitForSeconds(3f);
+        RemyText.text = "Thanks to you we aren't going to freeze tonight.";
+        yield return new WaitForSeconds(3f);
+        RemyText.text = "Anyways, I'm going to get to work now, see you!";
+        yield return new WaitForSeconds(1f);
+        RemyAnim.SetTrigger("wawe");
+        yield return new WaitForSeconds(3f);
+        RemyCloud.SetActive(false);
+        PlayerObjective.SetActive(true);
+        PlayerObjectiveText.text = "Help friends: " + FriendsHelped + "/3";
+        CharlieMissionText.text = "Talk to Charlie";
+        ElsaMissionText.text = "Talk to Elsa";
+        inMission = false;
+        check();
+    }
+
 
     public void Mission3()
     {
@@ -310,6 +430,12 @@ public class GAMESCRIPT : MonoBehaviour
     }
 
     IEnumerator Task3()
+    {
+        yield return new WaitForSeconds(3f);
+    }
+
+
+    IEnumerator MissionsComplete()
     {
         yield return new WaitForSeconds(3f);
     }
