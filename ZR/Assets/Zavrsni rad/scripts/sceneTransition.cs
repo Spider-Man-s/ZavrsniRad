@@ -4,10 +4,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-    public class sceneTransition : MonoBehaviour {
+public class sceneTransition : MonoBehaviour
+{
 
-    void OnEnable() {
-        SceneManager.LoadScene("Demo", LoadSceneMode.Single);   
+    void OnEnable()
+    {
+        if (GlobalMemory.scenario == 1)
+        {
+            SceneManager.LoadScene("Demo", LoadSceneMode.Single);
+        }
+        else
+        {
+            SceneManager.LoadScene("Demo 1", LoadSceneMode.Single);
+        }
     }
 
 }
