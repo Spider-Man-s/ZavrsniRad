@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Zavrsni rad/MainMenu 1.unity
     guid: 088e9b3442a203741aa29875b9cfaa1b
+  - enabled: 1
+    path: Assets/Zavrsni rad/Demo 1.unity
+    guid: 38be5f1fc6ae2e042acdce23b9e975cf
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: a437405642696d746a49df319521c903,
       type: 2}

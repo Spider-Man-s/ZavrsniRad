@@ -20,3 +20,39 @@ RemyTime: 157.6882 seconds
 
 ElsaTime: 225.6869 seconds
 
+New play
+
+New play
+
+ElsaTime: 61.8913 seconds
+
+New play
+
+New play
+
+New play
+
+New play
+
+New play
+
+CharlieTime: 456.7116 seconds
+
+ElsaTime: 1051.986 seconds
+
+RemyTime: 1429.284 seconds
+
+New play
+
+New play
+
+New play
+
+Charlie Time: 71.71841 seconds
+
+New play
+
+Charlie Time: 125.8233 seconds
+
+Elsa Time: 57.60115 seconds
+
