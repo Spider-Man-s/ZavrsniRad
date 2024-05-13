@@ -130,9 +130,13 @@ public class GAMESCRIPT : MonoBehaviour
         {
             Night = false;
         }
-        else
+        if (scene == 2)
         {
             Night = true;
+        }
+        if (scene == 0)
+        {
+            Night = false;
         }
         WriteElapsedTime("New play\n");
         StartCoroutine(Checkpoint1());
