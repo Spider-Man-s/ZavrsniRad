@@ -1,0 +1,111 @@
+New play
+
+Charlie Time: 282.2181 seconds
+
+Remy Time: 187.2577 seconds
+
+Elsa Time: 307.4568 seconds
+
+New play
+
+Charlie Time: 211.3829 seconds
+
+Elsa Time: 334.3992 seconds
+
+Remy Time: 116.4369 seconds
+
+______________
+
+
+New play
+
+Charlie Time: 340.7067 seconds
+
+Elsa Time: 355.9574 seconds
+
+Remy Time: 235.1508 seconds
+
+New play
+
+Charlie Time: 404.4603 seconds
+
+Elsa Time: 354.5049 seconds
+
+Remy Time: 199.1311 seconds
+______________
+
+
+
+New play
+
+Charlie Time: 385.2343 seconds
+
+Remy Time: 107.8104 seconds
+
+Elsa Time: 354.1387 seconds
+
+New play
+
+Charlie Time: 496.6042 seconds
+
+Remy Time: 130.1627 seconds
+
+Elsa Time: 520.1875 seconds
+
+______________________________
+
+
+New play
+
+Elsa Time: 525.6208 seconds
+
+Remy Time: 212.5772 seconds
+
+Charlie Time: 253.2424 seconds
+
+New play
+
+Charlie Time: 482.0739 seconds
+
+Remy Time: 189.1046 seconds
+
+Elsa Time: 225.67 seconds
+
+
+_______________________________
+
+New play
+
+Charlie Time: 394.7103 seconds
+
+Remy Time: 271.6787 seconds
+
+Elsa Time: 383.6759 seconds
+
+New play
+
+Charlie Time: 301.0817 seconds
+
+Remy Time: 174.1099 seconds
+
+Elsa Time: 279.2173 seconds
+_____________________________________
+
+
+
+New play
+
+Elsa Time: 464.151 seconds
+
+Remy Time: 298.8122 seconds
+
+Charlie Time: 272.4139 seconds
+
+New play
+
+Charlie Time: 154.6024 seconds
+
+Elsa Time: 339.6508 seconds
+
+Remy Time: 149.4258 seconds
+
